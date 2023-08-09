@@ -266,12 +266,12 @@ def send_email_fct():
         s.login(fromaddr, mdpfrom)
         try:
             s.sendmail(fromaddr, toaddr, msg.as_string())
-            return 'Email Sent'
+            print('Email Sent')
         finally:
             s.quit()
 
     except Exception as E:
-        return 'Mail failed: {}'.format(str(E))
+        print('Mail failed: {}'.format(str(E)))
 
 
 if __name__=='__main__':
