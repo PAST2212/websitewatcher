@@ -19,7 +19,7 @@
 - Please see Changelog for Updates:
 - https://github.com/PAST2212/websitewatcher/blob/main/Changelog
 
-  **Authors**
+**Authors**
 - Patrick Steinhoff (https://www.linkedin.com/in/patrick-steinhoff-168892222/)
 
 Written in Python 3.7
