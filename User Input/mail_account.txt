@@ -1,0 +1,3 @@
+sender_address : "websitechange.bot@example.com"
+recipient_address : "john.doe@company.com"
+password : "1234567"
