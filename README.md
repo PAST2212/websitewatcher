@@ -2,7 +2,12 @@
 
 Here you can trace changes for domains. websitewatcher will also send you automatically e-mails if any change on a domain was detected.
 
-**Example Screenshot:**
+
+
+
+
+
+**Example Screenshot of E-Mail that notified about changes of observed domain:**
 
 ![image](https://github.com/PAST2212/websitewatcher/assets/124390875/a97513c5-db6a-4278-81e7-9be0aed6a067)
 
