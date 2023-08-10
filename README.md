@@ -5,7 +5,7 @@ Here you can trace changes for domains. websitewatcher will also send you automa
 
 **Background**
 
-Regardless if legal, compliance, cyber security or fraud management department is monitoring for malicious domains. Due to the amount of registered domains on a daily base, many domain results can be produced on a weekly / monthly base. It is not uncommon for the majority of domains at the registration date to have no website or no server connect. It also also not uncommon for domains at the registration date to have no (receiving) mail server functionality. As a result, the analyst must keep track of all the results and the results may grow quite fast over the time. This is a waste of time
+Regardless if legal, compliance, cyber security or fraud management department is monitoring for malicious domains. Due to the amount of registered domains on a daily base, many domain results can be produced on a weekly / monthly base. It is not uncommon for the majority of domains at the registration date to have no website or no server connect. It also also not uncommon for domains at the registration date to have no (receiving) mail server functionality. As a result, the analyst must keep track of all the results and the results may grow quite fast over the time. Its a waste of time to due it manually.
 
 With help of this project you can track these domains for changes.
 
