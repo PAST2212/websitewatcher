@@ -2,6 +2,7 @@
 
 Here you can trace changes for domains. websitewatcher will also send you automatically reports via E-Mail if any change on a domain was detected.
 
+**Background**
 Regardless if legal, compliance, cyber security or fraud management department is monitoring for malicious domains. Due to the amount of registered domains on a daily base, many domain results can be produced on a weekly / monthly base .It is not uncommon for the majority of domains to have no website or no server connect. As a result, the analyst must keep track of all the results and the results may grow quite fast over the time.
 
 With help of this project you can track these domains for changes.
@@ -10,7 +11,6 @@ With help of this project you can track these domains for changes.
 **Example Screenshot of an Mail Report that notified about changes of observed domain for illustration purposes:**
 
 ![image](https://github.com/PAST2212/websitewatcher/assets/124390875/d8e59195-97fb-40c2-be42-5eda7c29cf39)
-
 
 
 **Features:**
