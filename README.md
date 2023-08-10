@@ -13,7 +13,7 @@ With help of this project you can track these domains for changes.
 ![image](https://github.com/PAST2212/websitewatcher/assets/124390875/d8e59195-97fb-40c2-be42-5eda7c29cf39)
 
 
-**Features:**
+**Features**
 - Multithreading (50 workers by default)
 - MX-Record, HTML-Title and HTML-Description Tag lookups to detect (fraudulent) webpage changes (A-Record lookups are included but not activated by default)
 - Send automatically E-Mails about changed websites
