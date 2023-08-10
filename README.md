@@ -7,9 +7,10 @@ Regardless if legal, compliance, cyber security or fraud management department i
 With help of this project you can track these domains for changes.
 
 
-**Example Screenshot of E-Mail that notified about changes of observed domain:**
+**Example Screenshot of an Mail Report that notified about changes of observed domain for illustration purposes:**
 
-![image](https://github.com/PAST2212/websitewatcher/assets/124390875/a97513c5-db6a-4278-81e7-9be0aed6a067)
+![image](https://github.com/PAST2212/websitewatcher/assets/124390875/d8e59195-97fb-40c2-be42-5eda7c29cf39)
+
 
 
 **Features:**
