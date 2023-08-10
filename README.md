@@ -22,6 +22,7 @@ With help of this project you can track these domains for changes.
 - Send automatically E-Mails about changed websites
 
 
+
 **Principles**
 - "Webpage Content has been changed or added. New Website Title: " in E-Mail means that the **content of a webpage** has been changed. The Title of a Webpage is in the browser tab
   ![image](https://github.com/PAST2212/websitewatcher/assets/124390875/94436f80-1a95-4727-88de-c2b933011842)
@@ -32,6 +33,7 @@ With help of this project you can track these domains for changes.
 
 
 
+
 **Before the first run - How it Works:**
 1. Put your domains into this TXT file "User Input/tracked_websites.txt" line per line for monitoring operations. Some domains are listed per default.
 
@@ -39,6 +41,7 @@ With help of this project you can track these domains for changes.
    - Either you create an account on your company side with a company address (e.g. domainbot@company.com) or
    - You create an account on another mail provider (e.g. GMAIL, as an example: https://mailtrap.io/blog/python-send-email-gmail/)
   
+
 
 **How to install:**
 - git clone https://github.com/PAST2212/websitewatcher.git
