@@ -15,6 +15,7 @@ With help of this project you can track these domains for changes.
 ![image](https://github.com/PAST2212/websitewatcher/assets/124390875/d8e59195-97fb-40c2-be42-5eda7c29cf39)
 
 
+
 **Features**
 - Multithreading (50 workers by default)
 - MX-Record, HTML-Title and HTML-Description Tag lookups to detect (fraudulent) webpage changes (A-Record lookups are included but not activated by default)
@@ -28,6 +29,7 @@ With help of this project you can track these domains for changes.
 - "Webpage Content has been changed or added. New Website Description: " in E-Mail means that **content of a webpage** has been changed. This Information is typically used by search engines and other web services
 
 - "MX-Record has been changed or added. New Record: " in E-Mail means that the **mail server configuration** has been changed. This information is helpful to track changes on phishing domains which arent active but have a high possibility for being used in bad faith in the future (e.g. a third party registered look-a-like domain: tuiqroup.com instead of tuigroup.com (g=q))
+
 
 
 **Before the first run - How it Works:**
