@@ -68,4 +68,4 @@ TO DO:
 - Add Possibility to send screenshots of changed websites via mail as attachement 
 - Add Possibility to parse arguments (e.g. workers for multithreading)
 - Add other paramaters as MX-Record, HTML-Title, HTML-Description if that makes sense.
-- Add Deeplink / Webpath compability, for example observe fakedomain.com/business
+- Add Deeplink / Webpath compability (e. g. observe fakedomain.com/Business) 
