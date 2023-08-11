@@ -10,6 +10,7 @@ from concurrent.futures import ThreadPoolExecutor
 import pandas as pd
 from requests.exceptions import HTTPError
 import sys
+import re
 
 list_file_domains = []
 
@@ -74,9 +75,11 @@ def html_tag_lookup(domain):
             title = soup.find('title')
             description = soup.find('meta', attrs={'name': 'description'})
             if title is not None:
-                hey.append(title.get_text().replace('\n', '').lower().strip())
+                title_mod = re.sub(r'[\n\r\t\b\f\v]+', '', title.get_text())
+                hey.append(title_mod.lower().strip())
             if description is not None:
-                hey.append(description['content'].replace('\n', '').lower().strip())
+                description_mod = re.sub(r'[\n\r\t\b\f\v]+', '', description['content'])
+                hey.append(description_mod.lower().strip())
 
     except (TypeError, AttributeError, requests.exceptions.ReadTimeout, KeyError):
         print('Parsing Webpage Error. Something went wrong at scraping: ', domain)
@@ -88,7 +91,6 @@ def html_tag_lookup(domain):
         print('Other Error occured: ', e)
 
     return list(filter(None, hey))
-
 
 def mx_record(domain):
     mx_temp = []
@@ -189,7 +191,7 @@ def postprocessing_outputfile():
     df.to_csv(f'{desktop}/website_changes.csv', index=False, encoding='utf-8-sig')
 
 
-def create_csv_file():
+def model_csv_file():
     console_file_path = f'{desktop}/website_changes.csv'
     if not os.path.exists(console_file_path):
         with open(console_file_path, mode='w', newline='', encoding='utf-8-sig') as f:
@@ -198,6 +200,29 @@ def create_csv_file():
             writer.writeheader()
             for domain in list_file_domains:
                 writer.writerow({'Domains': domain})
+
+    else:
+        file = open(console_file_path, mode='r', encoding='utf-8-sig')
+        csvreader = csv.DictReader(file, delimiter=',')
+        csv_domains = [row['Domains'] for row in csvreader]
+        added_input_domain = [k for k in list_file_domains if k not in csv_domains]
+        deleted_input_domains = [h for h in csv_domains if h not in list_file_domains]
+        print('New Website(s) added to tracked_websites.txt file: ', added_input_domain)
+        print('Old Website(s) deleted from tracked_websites.txt file: ', deleted_input_domains)
+        file.close()
+
+        if len(added_input_domain) > 0:
+            file_1 = open(console_file_path, mode='a', newline='', encoding='utf-8-sig')
+            writer = csv.writer(file_1, delimiter=',')
+            for k in added_input_domain:
+                writer.writerow([k])
+            file_1.close()
+
+        if len(deleted_input_domains) > 0:
+            df = pd.read_csv(f'{desktop}/website_changes.csv', delimiter=',', encoding='utf-8-sig')
+            for i in deleted_input_domains:
+                df = df.drop(df[df['Domains'] == i].index)
+            df.to_csv(f'{desktop}/website_changes.csv', index=False, encoding='utf-8-sig')
 
 
 def load_old_attributes():
@@ -277,7 +302,7 @@ def send_email_fct():
 if __name__=='__main__':
     read_tracked_websites_file()
     read_mail_account()
-    create_csv_file()
+    model_csv_file()
     load_old_attributes()
     html_tag_threading(50)
     #a_record_threading(50)
