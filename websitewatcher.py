@@ -257,8 +257,8 @@ def separate_into_html_description():
 
 
 def compare_changes():
-    #a_record_changes = [(i[0], 'A-Record has been changed or added. New Record: "{}"'.format(x)) for k in a_records_compare for i in a_records if k[0] == i[0] and k[1].split(',') != i[1] for x in i[1] if x not in k[1].split(',')]
-    mx_record_changes = [(i[0], 'MX-Record has been changed or added. New Record: "{}"'.format(x)) for k in mx_records_compare for i in mx_records if k[0] == i[0] and k[1].split(',') != i[1] for x in i[1] if x not in k[1].split(',')]
+    #a_record_changes = [(i[0], 'A-Record has been changed or added. New Record: "{}"'.format(x)) for k in a_records_compare for i in a_records if k[0] == i[0] and k[1] is not None and k[1].split(',') != i[1] for x in i[1] if x not in k[1].split(',')]
+    mx_record_changes = [(i[0], 'MX-Record has been changed or added. New Record: "{}"'.format(x)) for k in mx_records_compare for i in mx_records if k[0] == i[0] and k[1] is not None and k[1].split(',') != i[1] for x in i[1] if x not in k[1].split(',')]
     html_title_changes = [(i[0], 'Webpage Content has been changed or added. New Website Title: "{}"'.format(i[1])) for k in html_titles_compare for i in html_tags if k[0] == i[0] and k[1] != i[1]]
     html_description_changes = [(i[0], 'Webpage Content has been changed or added. New Website Description: "{}"'.format(i[2])) for k in html_description_compare for i in html_tags if len(i) > 2 if k[0] == i[0] and k[1] != i[2]]
     sum_changes = mx_record_changes + html_title_changes + html_description_changes
