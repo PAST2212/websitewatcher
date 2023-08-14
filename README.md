@@ -41,6 +41,7 @@ With help of this project you can track these domains for changes.
 - python3 websitewatcher.py
 
 **How to update**
+- cd websitewatcher
 - git pull
 - In case of a Merge Error: Try "git reset --hard" before "git pull"
 
