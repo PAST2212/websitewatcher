@@ -16,14 +16,13 @@ With help of this project you can track these domains for changes.
 
 
 
-**Features**
+# **Features**
 - Multithreading (50 workers by default)
 - MX-Record, HTML-Title and HTML-Description Tag lookups to detect (fraudulent) webpage changes (A-Record lookups are included but not activated by default)
 - Send automatically E-Mails about changed websites
 
 
-
-**Principles**
+# **Principles**
 - "Webpage Content has been changed or added. New Website Title: " in E-Mail means that the **content of a webpage** has been changed. The Title of a Webpage is in the browser tab
   ![image](https://github.com/PAST2212/websitewatcher/assets/124390875/94436f80-1a95-4727-88de-c2b933011842)
 
@@ -31,27 +30,17 @@ With help of this project you can track these domains for changes.
 
 - "MX-Record has been changed or added. New Record: " in E-Mail means that the **mail server configuration** has been changed. This information is helpful to track changes on phishing domains which arent active but have a high possibility for being used in bad faith in the future (e.g. a third party registered look-a-like domain: tuiqroup.com instead of tuigroup.com (g=q))
 
-
-
-
-**Before the first run - How it Works:**
-1. Put your domains into this TXT file "User Input/tracked_websites.txt" line per line for monitoring operations. Some domains are listed per default.
-
-2. Create a new mail account and put your E-Mail address for sending reports, password and recipient address into this TXT file "User Input/mail_account.txt"
-   - Either you create an account on your company side with a company address (e.g. domainbot@company.com) or
-   - You create an account on another mail provider (e.g. GMAIL, as an example: https://mailtrap.io/blog/python-send-email-gmail/)
-  
-
+# **Instructions**
 
 **How to install:**
 - git clone https://github.com/PAST2212/websitewatcher.git
 - cd websitewatcher
 - pip install -r requirements.txt
 
-**How to run:**
+**How to run**
 - python3 websitewatcher.py
 
-**How to update**: Type command in websitewatcher directory
+**How to update**
 - git pull
 - In case of a Merge Error: Try "git reset --hard" before "git pull"
 
@@ -59,13 +48,22 @@ With help of this project you can track these domains for changes.
 - Please see Changelog for Updates:
 - https://github.com/PAST2212/websitewatcher/blob/main/Changelog
 
+**Before the first run - How it Works:**
+1. Put your domains into this TXT file "User Input/tracked_websites.txt" line per line for monitoring operations. Some domains are listed per default.
+
+2. Create a new mail account and put your E-Mail address for sending reports, password and recipient address into this TXT file "User Input/mail_account.txt"
+   - Either you create an account on your company side with a company address (e.g. domainbot@company.com) or
+   - You create an account on another mail provider (e.g. GMAIL, as an example: https://mailtrap.io/blog/python-send-email-gmail/)
+
+# **Notes**
+
 **Authors**
 - Patrick Steinhoff (https://www.linkedin.com/in/patrick-steinhoff-168892222/)
 
 Written in Python 3.7
 
-TO DO:
+**TO DO**
 - Add Possibility to send screenshots of changed websites via mail as attachement 
 - Add Possibility to parse arguments (e.g. workers for multithreading)
 - Add other paramaters as MX-Record, HTML-Title, HTML-Description if that makes sense.
-- Add Deeplink / Webpath compability (e. g. observe fakedomain.com/Business) 
+- Add better Deeplink / Webpath compability (e. g. observe fakedomain.com/Business) 
