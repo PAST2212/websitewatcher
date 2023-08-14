@@ -45,16 +45,17 @@ With help of this project you can track these domains for changes.
 - git pull
 - In case of a Merge Error: Try "git reset --hard" before "git pull"
 
-**Changelog**
-- Please see Changelog for Updates:
-- https://github.com/PAST2212/websitewatcher/blob/main/Changelog
-
 **Before the first run - How it Works:**
 1. Put your domains into this TXT file "User Input/tracked_websites.txt" line per line for monitoring operations. Some domains are listed per default.
 
 2. Create a new mail account and put your E-Mail address for sending reports, password and recipient address into this TXT file "User Input/mail_account.txt"
    - Either you create an account on your company side with a company address (e.g. domainbot@company.com) or
    - You create an account on another mail provider (e.g. GMAIL, as an example: https://mailtrap.io/blog/python-send-email-gmail/)
+
+# **Changelog**
+
+- Please see Changelog for Updates:
+- https://github.com/PAST2212/websitewatcher/blob/main/Changelog
 
 # **Notes**
 
