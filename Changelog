@@ -1,4 +1,4 @@
-v 1.1 (11.08.2023)
+v 1.01 (11.08.2023)
 - Bug Fixes. Now support deletion and addition of websites / domains in existing tracked_websites.txt file.
 
 v 1.0 (09.08.2023)
