@@ -8,7 +8,6 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from concurrent.futures import ThreadPoolExecutor
 import pandas as pd
-from requests.exceptions import HTTPError
 import sys
 import re
 
@@ -30,7 +29,6 @@ mail_account = {}
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36', 'Pragma': 'no-cache', 'Cache-Control': 'no-cache'}
 
 desktop = os.path.join(os.path.expanduser('~'), 'websitewatcher')
-
 
 def read_tracked_websites_file():
     try:
@@ -69,22 +67,21 @@ def html_tag_lookup(domain):
     request_session.keep_alive = False
     try:
         response = request_session.get(domains, headers=headers, allow_redirects=True, timeout=(5, 30))
-        if response.raise_for_status() is None:
-            soup = BeautifulSoup(response.text, 'lxml')
-            hey.append(domain)
-            title = soup.find('title')
-            description = soup.find('meta', attrs={'name': 'description'})
-            if title is not None:
-                title_mod = re.sub(r'[\n\r\t\b\f\v]+', '', title.get_text())
-                hey.append(title_mod.lower().strip())
-            if description is not None:
-                description_mod = re.sub(r'[\n\r\t\b\f\v]+', '', description['content'])
-                hey.append(description_mod.lower().strip())
+        soup = BeautifulSoup(response.text, 'lxml')
+        hey.append(domain)
+        title = soup.find('title')
+        description = soup.find('meta', attrs={'name': 'description'})
+        if title is not None:
+            title_mod = re.sub(r'[\n\r\t\b\f\v]+', '', title.get_text())
+            hey.append(title_mod.lower().strip())
+        if description is not None:
+            description_mod = re.sub(r'[\n\r\t\b\f\v]+', '', description['content'])
+            hey.append(description_mod.lower().strip())
 
     except (TypeError, AttributeError, requests.exceptions.ReadTimeout, KeyError):
         print('Parsing Webpage Error. Something went wrong at scraping: ', domain)
 
-    except (HTTPError, requests.exceptions.ConnectionError, requests.exceptions.ConnectTimeout, requests.exceptions.TooManyRedirects):
+    except (requests.exceptions.ConnectionError, requests.exceptions.ConnectTimeout, requests.exceptions.TooManyRedirects):
         print('Server Connection Error. Domain is probably not online: ', domain)
 
     except Exception as e:
@@ -92,11 +89,12 @@ def html_tag_lookup(domain):
 
     return list(filter(None, hey))
 
+
 def mx_record(domain):
     mx_temp = []
     resolver = dns.resolver.Resolver()
-    resolver.timeout = 5
-    resolver.lifetime = 5
+    resolver.timeout = 2
+    resolver.lifetime = 2
     resolver.nameservers = ['8.8.8.8']
     mx_temp.append(domain)
     try:
@@ -270,6 +268,7 @@ def compare_changes():
 
 
 def send_email_fct():
+
     fromaddr = mail_account['sender_address']
     mdpfrom = mail_account['password']
     toaddr = mail_account['recipient_address']
@@ -280,8 +279,8 @@ def send_email_fct():
     msg['Subject'] = "Notification Website Watcher - Changes were detected"
 
     body_email = f"This Mail was automatically generated and provide information about detected changes of monitored websites in file tracked_websites.txt.\n\n" \
-                 f"Quantity of current Websites to track changes: {len(list_file_domains)} Websites.\n\n" \
-                 f"Following events have been changed or added: \n\n{compare_changes()}"
+                f"Quantity of current Websites to track changes: {len(list_file_domains)} Websites.\n\n" \
+                f"Following events have been changed or added: \n\n{compare_changes()}"
 
     msg.attach(MIMEText(body_email, 'plain'))
 
